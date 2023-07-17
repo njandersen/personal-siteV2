@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function CloseIcon(props) {
   return (
     <div className={props.className}>

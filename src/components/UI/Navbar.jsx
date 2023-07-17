@@ -21,7 +21,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="bg-darkneutral flex justify-between items-center">
+    <div className="bg-darkneutral flex justify-between items-center sticky top-0">
       <div className="ml-10">
         <Logo />
       </div>
