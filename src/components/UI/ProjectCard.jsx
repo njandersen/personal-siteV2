@@ -29,7 +29,7 @@ export default function ProjectCard({
   return (
     <div className="max-w-[846px] max-h-[507px] bg-white rounded-lg">
       <img
-        className="max-w-[849px] max-h-[349px] w-full rounded-lg"
+        className="max-w-[849px] max-h-[320px] w-full rounded-lg"
         src={imageUrl}
         alt="project"
       />

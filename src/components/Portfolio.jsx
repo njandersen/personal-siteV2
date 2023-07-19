@@ -70,17 +70,11 @@ const Portfolio = () => {
           ))}
         </div>
       </div>
-      <div className="mt-32 md:mt-0">
-        <button
-          className="prev-button absolute top-1/2 left-4 transform -translate-y-1/2"
-          onClick={handlePrevProject}
-        >
+      <div className="mt-10 flex ">
+        <button className="prev-button pr-32 " onClick={handlePrevProject}>
           <FaChevronLeft size={48} color="#447EF2" />
         </button>
-        <button
-          className="next-button absolute top-1/2 right-4 transform -translate-y-1/2"
-          onClick={handleNextProject}
-        >
+        <button className="next-button " onClick={handleNextProject}>
           <FaChevronRight size={48} color="#447EF2" />
         </button>
       </div>
