@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Tunezle",
     description:
-      "A wordle like game where users can use the piano to guess the current melody of the day. Users can sign up and track their stats as well see a leaderboard of top players.",
+      "A wordle like game where users can use the piano to guess the current melody of the day. Users can sign up and track their stats as well see a leaderboard of top players. Built during my internship",
     imageUrl: "./Tunezle2.0.png",
     icons: ["React", "Tailwind", "Firebase"],
     link: "https://tunezle.com/",
@@ -23,7 +23,7 @@ const projects = [
   {
     title: "Nushi",
     description:
-      "A free AI art generator that uses OpenAI's Dalle-2 api to generate images based on user prompts.",
+      "A free AI art generator that uses OpenAI's Dalle-2 api to generate images based on user prompts. Built during my internship",
     imageUrl: "./nushiai.png",
     icons: ["React", "Tailwind", "Node.js"],
     link: "https://nushiai.com/",
