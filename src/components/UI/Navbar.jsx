@@ -21,7 +21,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="bg-darkneutral flex justify-between items-center sticky top-0">
+    <div className="bg-darkneutral flex justify-between items-center sticky top-0 z-10">
       <div className="ml-10">
         <Logo />
       </div>
@@ -38,7 +38,7 @@ export default function Navbar() {
       <div className="hidden md:flex">
         <ul className="text-white md:flex md:space-x-9 md:mr-10">
           {navLinks.map((link) => (
-            <li key={link.name}>
+            <li key={link.name} className="font-montserrat text-lg">
               <Link to={link.path}>{link.name}</Link>
             </li>
           ))}

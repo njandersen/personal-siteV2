@@ -1,37 +1,35 @@
+import LinkedinIcon from "./SVG/LinkedinIcon";
+
 /* eslint-disable react/no-unescaped-entities */
 export default function Greeting() {
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  let interval = 0;
-  const handleMouseOver = (e) => {
-    let iteration = 0;
-
-    clearInterval(interval);
-
-    interval = setInterval(() => {
-      e.target.innerText = e.target.innerText
-        .split("")
-        .map((letter, index) => {
-          if (index < iteration) {
-            return e.target.dataset.value[index];
-          }
-          return letters[Math.floor(Math.random() * letters.length)];
-        })
-        .join("");
-      iteration += 1 / 3;
-    }, 30);
-  };
   return (
-    <div className="lg:mt-96 lg:mb-96 flex items-center relative pl-10 pt-28 lg:pt-0 lg:pl-44">
-      <div className="text-white flex flex-col items-start">
-        <h2 className="text-2xl md:text-3xl pb-2">Hello There,</h2>
-        <h1
-          data-value="I'm N.J. Andersen"
-          onMouseOver={handleMouseOver}
-          className="font-extrabold text-transparent text-4xl md:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 pb-2"
-        >
-          I'm N.J. Andersen
-        </h1>
-        <h2 className=" text-2xl md:text-3xl">Full Stack Web Developer.</h2>
+    <div className="flex flex-col md:flex-row justify-center">
+      <div className="mt-52">
+        <div className="ml-5 md:ml-0">
+          <h3 className="font-montserrat text-white text-2xl">Hello There.</h3>
+          <h1 className="font-montserrat text-white text-5xl">I'm Nicholas,</h1>
+          <h3 className="font-montserrat text-white text-2xl">
+            A Front End Engineer.
+          </h3>
+          <p className="font-hind text-white mt-8 max-w-md">
+            I’m Nicholas, Front End Engineer with a passion for all things
+            software and design. I’m fluent with both front end and back end
+            infrastructures and have recently begun fleshing out my design
+            skills. I am always seeking new challenges and opportunities. Feel
+            free to reach out!
+          </p>
+          <div className="flex items-center">
+            <button className="bg-accent-100 text-primary-300 font-montserrat text-xl px-8 py-3 mt-8 rounded-md">
+              Lets Talk!
+            </button>
+            <div className="mt-10 ml-10">
+              <LinkedinIcon />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="Avatar.svg" alt="Avatar" />
       </div>
     </div>
   );

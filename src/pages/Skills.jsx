@@ -1,61 +1,63 @@
+import {
+  SiJavascript,
+  SiFirebase,
+  SiPrisma,
+  SiPostgresql,
+} from "react-icons/si";
+import { AiOutlineHtml5 } from "react-icons/ai";
+import { TbBrandCss3, TbBrandTailwind, TbBrandNextjs } from "react-icons/tb";
+import { FaReact, FaNodeJs, FaFigma } from "react-icons/fa";
+
 export default function Skills() {
   return (
-    <div className="py-48 relative lg:pl-44 mt-96">
-      <div>
-        <h2 className="font-extrabold text-transparent text-5xl lg:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-          Skills & Experience
-        </h2>
-      </div>
-      <div className="flex flex-col lg:flex-row">
-        <div className="text-white flex flex-col mt-10 pr-10">
-          <div className="mb-8">
-            <span className="block mb-[7px]">Front End</span>
-            <footer className="h-[2px] bg-gray-900 w-[450px]">
-              <div className="h-full bg-teal-500 w-96"></div>
-            </footer>
-          </div>
-          <div className="mb-8">
-            <span className="block mb-[7px]">Back End</span>
-            <footer className="h-[2px] bg-gray-900 w-[450px]">
-              <div className="h-full bg-purple-400 w-80"></div>
-            </footer>
-          </div>
-          <div className="mb-8">
-            <span className="block mb-[7px]">React</span>
-            <footer className="h-[2px] bg-gray-900 w-[450px]">
-              <div className="h-full bg-pink-600 w-96"></div>
-            </footer>
-          </div>
-          <div className="mb-8">
-            <span className="block mb-[7px]">Node/Express</span>
-            <footer className="h-[2px] bg-gray-900 w-[450px]">
-              <div className="h-full bg-teal-500 w-80"></div>
-            </footer>
-          </div>
+    <div className="flex flex-col items-center justify-center mt-36 ">
+      <h2 className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg">
+        Tech
+      </h2>
+      <div className="mt-20 flex space-x-2 md:space-x-10 flex-wrap">
+        <div className="flex flex-col items-center">
+          <SiJavascript size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">JavaScript</p>
         </div>
-        <div className="text-white lg:w-2/3 lg:p-10 text-lg ">
-          <p>
-            I embarked on my journey in software engineering when I started
-            college in 2019, and it was there that I discovered my passion for
-            web development. Throughout my academic journey, I have honed my
-            skills in React, showcasing a strong proficiency in building dynamic
-            and interactive user interfaces. Front-end design is an area where I
-            truly excel, as I combine my technical knowledge with a keen eye for
-            aesthetics to create visually appealing and user-friendly websites.
-            With a solid foundation in software engineering principles and a
-            specialization in web development, I am equipped to tackle complex
-            front-end challenges and deliver high-quality solutions.
-          </p>
-          <br />
-          <p>
-            Currently I am interning at Bit Source, a software development
-            company and am also persuing freelance work. I am always looking for
-            more opportunities to learn and grow as a developer.{" "}
-            <a href="/ResumeV5.pdf" className="text-teal-500">
-              You can find my resume here.
-            </a>{" "}
-            Please feel free to reach out.
-          </p>
+        <div className="flex flex-col items-center">
+          <AiOutlineHtml5 size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">HTML</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <TbBrandCss3 size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">CSS</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <FaReact size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">React</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <TbBrandNextjs size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">Next.js</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <TbBrandTailwind size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">Tailwind</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <FaNodeJs size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">Node.js</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiPrisma size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">Prisma</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiPostgresql size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">PostgreSQL</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <SiFirebase size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">Firebase</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <FaFigma size={48} color="#447EF2" />
+          <p className="font-hind text-white pt-2">Figma</p>
         </div>
       </div>
     </div>

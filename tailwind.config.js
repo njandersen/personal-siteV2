@@ -21,6 +21,10 @@ export default {
         },
         darkneutral: "#1E1827",
       },
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+        hind: ["Hind", "sans-serif"],
+      },
     },
   },
   plugins: [],

@@ -1,62 +1,88 @@
+import { useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
+import ProjectCard from "./UI/ProjectCard";
+
 const projects = [
   {
     title: "Tunezle",
-    description: "A melody guessing game built with React",
-    imageUrl: "tunezle.png",
+    description:
+      "A wordle like game where users can use the piano to guess the current melody of the day. Users can sign up and track their stats as well see a leaderboard of top players.",
+    imageUrl: "./Tunezle2.0.png",
+    icons: ["React", "Tailwind", "Firebase"],
     link: "https://tunezle.com/",
-  },
-  {
-    title: "Nushi",
-    description: "A web app that generates art using user prompts ",
-    imageUrl: "nushiai.png",
-    link: "https://nushiai.com/",
   },
   {
     title: "Guardian Dispatch",
     description:
-      "A social site for the Destiny 2 community to share their favorite builds",
-    imageUrl: "guardian-dispatch.png",
+      "A social site for the Destiny 2 community to share their favorite builds. Users can sign up and create posts as well as comment on other posts.",
+    imageUrl: "./guardian-dispatch.png",
+    icons: ["Next.js", "Tailwind", "Firebase"],
     link: "https://guardian-dispatch.vercel.app/",
   },
   {
-    title: "Personal Blog",
-    description: "A personal blog built with Next.js",
-    imageUrl: "blog screenshot.png",
-    link: "https://personal-blog-tau-six.vercel.app/",
+    title: "Nushi",
+    description:
+      "A free AI art generator that uses OpenAI's Dalle-2 api to generate images based on user prompts.",
+    imageUrl: "./nushiai.png",
+    icons: ["React", "Tailwind", "Node.js"],
+    link: "https://nushiai.com/",
   },
 ];
 
 const Portfolio = () => {
+  const [currentProject, setCurrentProject] = useState(0);
+
+  const handleNextProject = () => {
+    setCurrentProject((prevProject) =>
+      prevProject === projects.length - 1 ? 0 : prevProject + 1
+    );
+  };
+
+  const handlePrevProject = () => {
+    setCurrentProject((prevProject) =>
+      prevProject === 0 ? projects.length - 1 : prevProject - 1
+    );
+  };
+
   return (
-    <div className="py-80 ">
-      <div className="lg:pl-[450px] pl-10 mb-10">
-        <h2 className="font-extrabold text-transparent text-6xl lg:text-8xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 ">
-          Portfolio
-        </h2>
-      </div>
-      <div className="max-w-screen-xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <a
-              key={project.title}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative block h-64 rounded-lg overflow-hidden group"
+    <div className="flex flex-col items-center justify-center mt-36">
+      <h2 className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg">
+        Projects
+      </h2>
+      <div className="mt-32 relative w-full max-w-xl">
+        <div className="carousel-wrapper">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className={`project-card ${
+                index === currentProject ? "active" : "inactive"
+              }`}
             >
-              <img
-                src={project.imageUrl}
-                alt={project.title}
-                className="object-cover w-full h-full transition-all duration-300 transform group-hover:scale-105 group-hover:z-10"
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                imageUrl={project.imageUrl}
+                icons={project.icons}
+                link={project.link}
               />
-              <div className="absolute inset-0 bg-black opacity-25"></div>
-              <div className="absolute inset-0 p-6 flex items-center justify-center flex-col text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-300">{project.description}</p>
-              </div>
-            </a>
+            </div>
           ))}
         </div>
+      </div>
+      <div className="mt-32 md:mt-0">
+        <button
+          className="prev-button absolute top-1/2 left-4 transform -translate-y-1/2"
+          onClick={handlePrevProject}
+        >
+          <FaChevronLeft size={48} color="#447EF2" />
+        </button>
+        <button
+          className="next-button absolute top-1/2 right-4 transform -translate-y-1/2"
+          onClick={handleNextProject}
+        >
+          <FaChevronRight size={48} color="#447EF2" />
+        </button>
       </div>
     </div>
   );

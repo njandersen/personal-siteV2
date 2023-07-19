@@ -9,9 +9,9 @@ export default function Home() {
     <>
       <Greeting />
 
+      <Skills />
       <Portfolio />
       <About />
-      <Skills />
       <ContactFooter />
     </>
   );
