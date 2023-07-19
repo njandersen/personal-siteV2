@@ -1,29 +1,88 @@
-import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
-import { IconContext } from "react-icons";
+import { useState } from "react";
 
 export default function ContactFooter() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Message:", message);
+    // Send form data to server or API
+  };
   return (
-    <IconContext.Provider value={{ color: "teal", size: "3rem" }}>
-      <div className="max-w-screen-xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="flex flex-col items-start bg-zinc-900 p-10">
-            <p className="text-white leading-relaxed text-lg mb-3">
-              Feel free to reach out to me at any time.
-            </p>
-            <button className="text-white text-lg bg-teal-500 rounded-lg w-32">
-              <a href="mailto:njandersen22@gmail.com">Contact Me</a>
-            </button>
-          </div>
-          <div className="flex items-center justify-center bg-zinc-900 p-10">
-            <a href="https://github.com/njandersen" className="pr-3">
-              <FaGithubSquare />
-            </a>
-            <a href="https://www.linkedin.com/in/nicholas-andersen-962b60121/">
-              <FaLinkedin />
-            </a>
-          </div>
+    <div className="flex flex-col items-center justify-center mt-36">
+      <h2 className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg">
+        Connect
+      </h2>
+      <form
+        className="mt-14 w-full max-w-md"
+        onSubmit={handleSubmit}
+        method="POST"
+        netlify
+        data-netlify="true"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-200 font-bold mb-2">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Your name"
+            required
+          />
         </div>
-      </div>
-    </IconContext.Provider>
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-200 font-bold mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Your email"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="message"
+            className="block text-gray-200 font-bold mb-2"
+          >
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Your message"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="bg-secondary-100 hover:bg-secondary-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
