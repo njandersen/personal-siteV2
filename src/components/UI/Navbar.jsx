@@ -18,7 +18,6 @@ export default function Navbar() {
     { name: "Projects", path: "projects" },
     { name: "Skills", path: "skills" },
     { name: "Contact", path: "contact" },
-    { name: "Resume", path: "/resume" },
   ];
 
   return (
@@ -42,20 +41,19 @@ export default function Navbar() {
         <ul className="text-white md:flex md:space-x-9 md:mr-10">
           {navLinks.map((link) => (
             <li key={link.name} className="font-montserrat text-lg">
-              {link.name === "Resume" ? (
-                <a href="/resume">{link.name}</a>
-              ) : (
-                <ScrollLink
-                  to={link.path}
-                  smooth={true}
-                  duration={500}
-                  className="cursor-pointer"
-                >
-                  {link.name}
-                </ScrollLink>
-              )}
+              <ScrollLink
+                to={link.path}
+                smooth={true}
+                duration={500}
+                className="cursor-pointer"
+              >
+                {link.name}
+              </ScrollLink>
             </li>
           ))}
+          <li className="font-montserrat text-lg">
+            <Link to="/resume">Resume</Link>
+          </li>
         </ul>
       </div>
       <div
@@ -73,20 +71,19 @@ export default function Navbar() {
         <ul className=" text-white">
           {navLinks.map((link) => (
             <li key={link.name} className="p-4">
-              {link.name === "Resume" ? (
-                <a href="/resume">{link.name}</a>
-              ) : (
-                <ScrollLink
-                  to={link.path}
-                  smooth={true}
-                  duration={500}
-                  className="cursor-pointer"
-                >
-                  {link.name}
-                </ScrollLink>
-              )}
+              <ScrollLink
+                to={link.path}
+                smooth={true}
+                duration={500}
+                className="cursor-pointer"
+              >
+                {link.name}
+              </ScrollLink>
             </li>
           ))}
+          <li className="font-montserrat text-lg">
+            <Link to="/resume">Resume</Link>
+          </li>
         </ul>
       </div>
     </div>
