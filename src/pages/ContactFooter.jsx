@@ -31,11 +31,12 @@ export default function ContactFooter() {
       <form
         className="mt-14 w-full max-w-md"
         onSubmit={handleSubmit}
+        name="contact"
         method="POST"
         netlify
         data-netlify="true"
       >
-        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="contact" value="contact" />
 
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-200 font-bold mb-2">
