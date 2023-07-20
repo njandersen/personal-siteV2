@@ -36,7 +36,7 @@ export default function ContactFooter() {
         netlify
         data-netlify="true"
       >
-        <input type="hidden" name="contact" value="contact" />
+        <input type="hidden" name="form-name" value="contact" />
 
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-200 font-bold mb-2">
