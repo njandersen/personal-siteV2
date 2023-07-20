@@ -1,6 +1,12 @@
 /* eslint-disable react/no-unknown-property */
 import { useState } from "react";
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 export default function ContactFooter() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -8,18 +14,31 @@ export default function ContactFooter() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+
+  //   // Simulate form submission delay (remove this in production)
+  //   setTimeout(() => {
+  //     setSubmitMessage("Message sent successfully!");
+  //     setIsSubmitting(false);
+  //   }, 1500); // Simulate 1.5-second delay, replace with actual form submission
+
+  //   // Send form data to server or API
+  // };
+
   const handleSubmit = (e) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state }),
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error));
+
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission delay (remove this in production)
-    setTimeout(() => {
-      setSubmitMessage("Message sent successfully!");
-      setIsSubmitting(false);
-    }, 1500); // Simulate 1.5-second delay, replace with actual form submission
-
-    // Send form data to server or API
   };
+
   return (
     <div className="flex flex-col items-center justify-center mt-36">
       <h2
@@ -33,8 +52,6 @@ export default function ContactFooter() {
         onSubmit={handleSubmit}
         name="contact"
         method="POST"
-        netlify
-        data-netlify="true"
       >
         <input type="hidden" name="form-name" value="contact" />
 
