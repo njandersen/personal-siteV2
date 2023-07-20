@@ -1,4 +1,5 @@
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
+import { Link as ScrollLink } from "react-scroll";
 
 /* eslint-disable react/no-unescaped-entities */
 export default function Greeting() {
@@ -18,9 +19,17 @@ export default function Greeting() {
             seeking new challenges and opportunities. Feel free to reach out!
           </p>
           <div className="flex items-center">
-            <button className="bg-accent-100 text-primary-300 font-montserrat text-xl px-8 py-3 mt-8 rounded-md">
-              Lets Talk!
-            </button>
+            <ScrollLink
+              to={"contact"}
+              smooth={true}
+              duration={500}
+              className="cursor-pointer"
+            >
+              <button className="bg-accent-100 text-primary-300 font-montserrat text-xl px-8 py-3 mt-8 rounded-md">
+                Lets Talk!
+              </button>
+            </ScrollLink>
+
             <div className="mt-10 ml-10 flex">
               <a
                 href="https://www.linkedin.com/in/njandersen22/"
