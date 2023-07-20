@@ -5,12 +5,19 @@ export default function ContactFooter() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
+    setIsSubmitting(true);
+
+    // Simulate form submission delay (remove this in production)
+    setTimeout(() => {
+      setSubmitMessage("Message sent successfully!");
+      setIsSubmitting(false);
+    }, 1500); // Simulate 1.5-second delay, replace with actual form submission
+
     // Send form data to server or API
   };
   return (
@@ -81,10 +88,16 @@ export default function ContactFooter() {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-secondary-100 hover:bg-secondary-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className={`bg-secondary-100 hover:bg-secondary-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+              isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={isSubmitting}
           >
-            Send
+            {isSubmitting ? "Sending..." : "Send"}
           </button>
+          {submitMessage && (
+            <div className="ml-4 text-white font-bold">{submitMessage}</div>
+          )}
         </div>
       </form>
     </div>
