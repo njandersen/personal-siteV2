@@ -47,7 +47,10 @@ const Portfolio = () => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-36">
-      <h2 className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg">
+      <h2
+        id="projects"
+        className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg"
+      >
         Projects
       </h2>
       <div className="mt-32 relative w-full max-w-xl">

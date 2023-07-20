@@ -11,7 +11,10 @@ import { FaReact, FaNodeJs, FaFigma } from "react-icons/fa";
 export default function Skills() {
   return (
     <div className="flex flex-col items-center justify-center mt-36 ">
-      <h2 className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg">
+      <h2
+        id="skills"
+        className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg"
+      >
         Tech
       </h2>
       <div className="mt-20 flex space-x-2 md:space-x-10 flex-wrap">

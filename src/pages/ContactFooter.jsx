@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { useState } from "react";
 
 export default function ContactFooter() {
@@ -14,7 +15,10 @@ export default function ContactFooter() {
   };
   return (
     <div className="flex flex-col items-center justify-center mt-36">
-      <h2 className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg">
+      <h2
+        id="contact"
+        className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg"
+      >
         Connect
       </h2>
       <form

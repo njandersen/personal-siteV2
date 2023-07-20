@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { useState } from "react";
 
 import Logo from "../SVG/Logo";
@@ -13,17 +14,19 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { name: "About", path: "/" },
-    { name: "Projects", path: "/projects" },
-    { name: "Skills", path: "/skills" },
-    { name: "Contact", path: "/contact" },
+    { name: "About", path: "about" },
+    { name: "Projects", path: "projects" },
+    { name: "Skills", path: "skills" },
+    { name: "Contact", path: "contact" },
     { name: "Resume", path: "/resume" },
   ];
 
   return (
     <div className="bg-darkneutral flex justify-between items-center sticky top-0 z-10">
       <div className="ml-10">
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
       </div>
       {isMenuOpen ? (
         <button onClick={toggleMenu} className="md:hidden mr-10">
@@ -39,7 +42,18 @@ export default function Navbar() {
         <ul className="text-white md:flex md:space-x-9 md:mr-10">
           {navLinks.map((link) => (
             <li key={link.name} className="font-montserrat text-lg">
-              <Link to={link.path}>{link.name}</Link>
+              {link.name === "Resume" ? (
+                <a href="/resume">{link.name}</a>
+              ) : (
+                <ScrollLink
+                  to={link.path}
+                  smooth={true}
+                  duration={500}
+                  className="cursor-pointer"
+                >
+                  {link.name}
+                </ScrollLink>
+              )}
             </li>
           ))}
         </ul>
@@ -52,12 +66,25 @@ export default function Navbar() {
         }
       >
         <div className="ml-10">
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
         </div>
         <ul className=" text-white">
           {navLinks.map((link) => (
             <li key={link.name} className="p-4">
-              <Link to={link.path}>{link.name}</Link>
+              {link.name === "Resume" ? (
+                <a href="/resume">{link.name}</a>
+              ) : (
+                <ScrollLink
+                  to={link.path}
+                  smooth={true}
+                  duration={500}
+                  className="cursor-pointer"
+                >
+                  {link.name}
+                </ScrollLink>
+              )}
             </li>
           ))}
         </ul>
