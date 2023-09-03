@@ -21,12 +21,11 @@ const projects = [
     link: "https://guardian-dispatch.vercel.app/",
   },
   {
-    title: "Nushi",
-    description:
-      "A free AI art generator that uses OpenAI's Dalle-2 api to generate images based on user prompts. Built during my internship",
-    imageUrl: "./nushiai.png",
-    icons: ["React", "Tailwind", "Node.js"],
-    link: "https://nushiai.com/",
+    title: "Loop Chat - Twitter Clone",
+    description: "A basic twitter clone made with Next.js and TRPC.",
+    imageUrl: "./LoopChat.png",
+    icons: ["Next.js", "Tailwind"],
+    link: "https://loopchatio.vercel.app/",
   },
 ];
 
