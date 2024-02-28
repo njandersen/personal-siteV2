@@ -8,7 +8,7 @@ export default function Resume() {
         >
           Resume
         </h2>
-        <img src="Resumeimg.png" alt="Resume" className="mt-10" />
+        <img src="resume.png" alt="Resume" className="mt-10" />
         <a href="CurrentResume.pdf" download>
           <button className="bg-accent-100 text-primary-300 font-montserrat text-xl px-8 py-3 mt-8 rounded-md">
             Download
