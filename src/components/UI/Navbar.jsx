@@ -14,14 +14,13 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { name: "About", path: "about" },
-    { name: "Projects", path: "projects" },
+    { name: "Experience", path: "experience" },
     { name: "Skills", path: "skills" },
     { name: "Contact", path: "contact" },
   ];
 
   return (
-    <div className="bg-darkneutral flex justify-between items-center sticky top-0 z-10">
+    <div className="bg-darkneutral flex justify-between items-center sticky top-0 z-10 border-b border-primary-100/20">
       <div className="ml-10">
         <Link to="/">
           <Logo />
@@ -37,25 +36,33 @@ export default function Navbar() {
         </button>
       )}
 
+      {/* Desktop nav */}
       <div className="hidden md:flex">
-        <ul className="text-white md:flex md:space-x-9 md:mr-10">
+        <ul className="text-white md:flex md:space-x-9 md:mr-10 items-center">
           {navLinks.map((link) => (
             <li key={link.name} className="font-montserrat text-lg">
               <ScrollLink
                 to={link.path}
                 smooth={true}
                 duration={500}
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-accent-100 transition-colors"
               >
                 {link.name}
               </ScrollLink>
             </li>
           ))}
           <li className="font-montserrat text-lg">
-            <Link to="/resume">Resume</Link>
+            <Link
+              to="/resume"
+              className="hover:text-accent-100 transition-colors"
+            >
+              Resume
+            </Link>
           </li>
         </ul>
       </div>
+
+      {/* Mobile menu */}
       <div
         className={
           isMenuOpen
@@ -68,21 +75,28 @@ export default function Navbar() {
             <Logo />
           </Link>
         </div>
-        <ul className=" text-white">
+        <ul className="text-white">
           {navLinks.map((link) => (
-            <li key={link.name} className="p-4">
+            <li key={link.name} className="p-4 font-montserrat text-lg">
               <ScrollLink
                 to={link.path}
                 smooth={true}
                 duration={500}
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-accent-100 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
               </ScrollLink>
             </li>
           ))}
-          <li className="font-montserrat text-lg">
-            <Link to="/resume">Resume</Link>
+          <li className="p-4 font-montserrat text-lg">
+            <Link
+              to="/resume"
+              className="hover:text-accent-100 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Resume
+            </Link>
           </li>
         </ul>
       </div>

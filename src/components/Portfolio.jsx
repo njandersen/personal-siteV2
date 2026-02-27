@@ -1,86 +1,58 @@
-import { useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
 import ProjectCard from "./UI/ProjectCard";
 
 const projects = [
   {
     title: "Tunezle",
     description:
-      "A wordle like game where users can use the piano to guess the current melody of the day. Users can sign up and track their stats as well see a leaderboard of top players. Built during my internship",
+      "A Wordle-inspired music game with a piano interface. Features user accounts, stat tracking, and a global leaderboard. Grew to ~1,500 active monthly users and won multiple pitch competitions.",
     imageUrl: "./Tunezle2.0.png",
     icons: ["React", "Tailwind", "Firebase"],
     link: "https://tunezle.com/",
+    metric: "~1,500 monthly users",
   },
   {
-    title: "Guardian Dispatch",
+    title: "Bingocize",
     description:
-      "A social site for the Destiny 2 community to share their favorite builds. Users can sign up and create posts as well as comment on other posts.",
-    imageUrl: "./guardian-dispatch.png",
-    icons: ["Next.js", "Tailwind", "Firebase"],
-    link: "https://guardian-dispatch.vercel.app/",
+      "Revitalized a broken web app for nursing home customers — rewrote the React frontend, optimized the Node.js backend, and added real-time Go WebSocket functionality. Improvements led to a contract win with the state of Ohio.",
+    imageUrl: null,
+    icons: ["React", "Node.js", "Go"],
+    link: null,
+    metric: "Ohio state contract",
   },
   {
-    title: "Loop Chat - Twitter Clone",
-    description: "A basic twitter clone made with Next.js and TRPC.",
-    imageUrl: "./LoopChat.png",
-    icons: ["Next.js", "Tailwind"],
-    link: "https://loopchatio.vercel.app/",
+    title: "Aizver",
+    description:
+      "An AI-powered interactive storytelling app for children. Integrates ElevenLabs for AI voice narration and ChatGPT for dynamic story generation. Deployed across all Pike County libraries.",
+    imageUrl: null,
+    icons: ["Next.js", "Firebase", "AI"],
+    link: null,
+    metric: "Deployed in 8+ libraries",
   },
 ];
 
 const Portfolio = () => {
-  const [currentProject, setCurrentProject] = useState(0);
-
-  const handleNextProject = () => {
-    setCurrentProject((prevProject) =>
-      prevProject === projects.length - 1 ? 0 : prevProject + 1
-    );
-  };
-
-  const handlePrevProject = () => {
-    setCurrentProject((prevProject) =>
-      prevProject === 0 ? projects.length - 1 : prevProject - 1
-    );
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center mt-36">
+    <section className="px-8 md:px-20 lg:px-32 py-24">
       <h2
         id="projects"
-        className="px-10 py-3 font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg"
+        className="font-montserrat text-3xl text-white border-2 border-secondary-100 rounded-lg px-10 py-3 inline-block mb-16"
       >
         Projects
       </h2>
-      <div className="mt-32 relative w-full max-w-xl">
-        <div className="carousel-wrapper">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`project-card ${
-                index === currentProject ? "active" : "inactive"
-              }`}
-            >
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                imageUrl={project.imageUrl}
-                icons={project.icons}
-                link={project.link}
-              />
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            imageUrl={project.imageUrl}
+            icons={project.icons}
+            link={project.link}
+            metric={project.metric}
+          />
+        ))}
       </div>
-      <div className="mt-10 flex ">
-        <button className="prev-button pr-32 " onClick={handlePrevProject}>
-          <FaChevronLeft size={48} color="#447EF2" />
-        </button>
-        <button className="next-button " onClick={handleNextProject}>
-          <FaChevronRight size={48} color="#447EF2" />
-        </button>
-      </div>
-    </div>
+    </section>
   );
 };
 

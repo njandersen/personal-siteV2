@@ -1,57 +1,95 @@
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
+import { Link } from "react-router-dom";
 
-/* eslint-disable react/no-unescaped-entities */
 export default function Greeting() {
   return (
-    <div className="flex flex-col md:flex-row justify-center" id="about">
-      <div className="mt-52">
-        <div className="ml-5 md:ml-0">
-          <h3 className="font-montserrat text-white text-2xl">Hello There.</h3>
-          <h1 className="font-montserrat text-white text-5xl">I'm Nicholas,</h1>
-          <h3 className="font-montserrat text-white text-2xl">
-            A Front End Engineer.
-          </h3>
-          <p className="font-hind text-white mt-8 max-w-md">
-            I’m a Comp Sci grad with a passion for all things software and
-            design. I’m fluent with both front end and back end infrastructures
-            and have recently begun fleshing out my design skills. I am always
-            seeking new challenges and opportunities. Feel free to reach out!
-          </p>
-          <div className="flex items-center">
-            <ScrollLink
-              to={"contact"}
-              smooth={true}
-              duration={500}
-              className="cursor-pointer"
-            >
-              <button className="bg-accent-100 text-primary-300 font-montserrat text-xl px-8 py-3 mt-8 rounded-md">
-                Lets Talk!
-              </button>
-            </ScrollLink>
+    <div
+      id="hero"
+      className="min-h-screen flex flex-col justify-center px-8 md:px-20 lg:px-32 relative overflow-hidden"
+    >
+      {/* Purple radial glow — top left */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: "700px",
+          height: "700px",
+          top: "-200px",
+          left: "-250px",
+          background:
+            "radial-gradient(circle, rgba(76,29,143,0.45) 0%, transparent 65%)",
+          borderRadius: "50%",
+        }}
+      />
+      {/* Cyan radial glow — right side */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: "500px",
+          height: "500px",
+          top: "50%",
+          right: "-150px",
+          transform: "translateY(-50%)",
+          background:
+            "radial-gradient(circle, rgba(5,255,231,0.07) 0%, transparent 70%)",
+          borderRadius: "50%",
+        }}
+      />
 
-            <div className="mt-10 ml-10 flex">
-              <a
-                href="https://www.linkedin.com/in/njandersen22/"
-                className="mr-10"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin size={48} color="#05FFE7" />
-              </a>
-              <a
-                href="https://github.com/njandersen"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithubSquare size={48} color="#05FFE7" />
-              </a>
-            </div>
-          </div>
+      <div className="max-w-3xl relative z-10">
+        <p className="font-montserrat text-accent-100 text-sm mb-5 tracking-widest uppercase">
+          Full Stack Software Engineer
+        </p>
+
+        <h1
+          className="font-montserrat text-white text-6xl md:text-7xl font-bold leading-tight mb-3"
+          style={{ textShadow: "0 0 60px rgba(76,29,143,0.6)" }}
+        >
+          Nicholas
+          <br />
+          Andersen
+        </h1>
+
+        {/* Shimmer gradient underline */}
+        <div className="shimmer-bar mb-8" style={{ maxWidth: "340px" }} />
+
+        <p className="font-hind text-gray-300 text-lg max-w-xl mb-10 leading-relaxed">
+          Full stack engineer with 2+ years of professional experience at Bit
+          Source, building and shipping production applications. Focused on
+          performance, UX, and measurable business impact.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4 mb-12">
+          <ScrollLink to="experience" smooth={true} duration={500}>
+            <button className="btn-glow bg-accent-100 text-primary-300 font-montserrat font-bold text-base px-8 py-3 rounded-md hover:opacity-90 transition-opacity cursor-pointer">
+              View Work
+            </button>
+          </ScrollLink>
+          <Link to="/resume">
+            <button className="border-2 border-accent-100 text-accent-100 font-montserrat font-bold text-base px-8 py-3 rounded-md hover:bg-accent-100 hover:text-primary-300 transition-colors hover:shadow-[0_0_20px_rgba(5,255,231,0.4)]">
+              Resume
+            </button>
+          </Link>
         </div>
-      </div>
-      <div>
-        <img src="Avatar.svg" alt="Avatar" />
+
+        <div className="flex gap-6">
+          <a
+            href="https://www.linkedin.com/in/njandersen22/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:drop-shadow-[0_0_8px_rgba(5,255,231,0.7)] transition-all"
+          >
+            <FaLinkedin size={36} color="#05FFE7" />
+          </a>
+          <a
+            href="https://github.com/njandersen"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:drop-shadow-[0_0_8px_rgba(5,255,231,0.7)] transition-all"
+          >
+            <FaGithubSquare size={36} color="#05FFE7" />
+          </a>
+        </div>
       </div>
     </div>
   );
