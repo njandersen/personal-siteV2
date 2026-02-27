@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {
@@ -12,23 +16,27 @@ body {
   margin: 0;
 }
 
-/* Styles for the carousel */
-.carousel-wrapper {
-  display: flex;
-  transition: transform 0.5s ease;
+/* Shimmer gradient underline for hero subtitle */
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
-.project-card {
-  flex: 0 0 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+.shimmer-bar {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #4C1D8F, #05FFE7, #4885FF, #05FFE7, #4C1D8F);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  border-radius: 999px;
 }
 
-.project-card.active {
-  opacity: 1;
+/* Pulsing glow on the primary CTA */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(5, 255, 231, 0.4); }
+  50%       { box-shadow: 0 0 32px rgba(5, 255, 231, 0.7); }
 }
 
-.project-card.inactive {
-  pointer-events: none;
-  position: absolute;
+.btn-glow {
+  animation: glow-pulse 2.5s ease-in-out infinite;
 }
